@@ -282,7 +282,7 @@ function attachFile(blob, filename) {
     let scriptInfo = GM_info;
     console.log("emp_stash_fill.user.js version " + scriptInfo.script.version);
 
-    // if (location.hostname location.hostname === "www.empornium.sx") {
+    // if (location.hostname === "www.empornium.is" || location.hostname === "www.empornium.sx") {
     if (unsafeWindow.TRACKERS.includes(location.hostname)) {
         let tag_form_input = document.getElementById("taginput");
         if (!tag_form_input) {
