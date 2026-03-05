@@ -5,7 +5,6 @@
 // @description  This script helps create an upload for empornium based on a scene from your local stash instance.
 // @author       bdbenim
 // @match        https://www.empornium.sx/upload.php*
-// @match        https://www.empornium.is/upload.php*
 // @match        https://www.femdomcult.org/upload.php*
 // @match        https://femdomcult.org/upload.php*
 // @match        https://www.happyfappy.org/upload.php*
@@ -77,7 +76,7 @@
 const BACKEND_DEFAULT = "http://localhost:9932";
 const STASH_DEFAULT = "http://localhost:9999";
 const STASH_API_KEY_DEFAULT = null;
-const EMPORNIUM_DEFAULT = "https://www.empornium.is";
+const EMPORNIUM_DEFAULT = "https://www.empornium.sx";
 
 const BACKEND = GM_getValue("backend_url", BACKEND_DEFAULT);
 const STASH = GM_getValue("stash_url", STASH_DEFAULT);
@@ -174,7 +173,6 @@ function generate(data, callback) {
 
 function getTracker() {
     switch (location.hostname) {
-        case "www.empornium.is":
         case "www.empornium.sx":
             return "EMP"
         case "femdomcult.org":
@@ -284,7 +282,7 @@ function attachFile(blob, filename) {
     let scriptInfo = GM_info;
     console.log("emp_stash_fill.user.js version " + scriptInfo.script.version);
 
-    // if (location.hostname === "www.empornium.is" || location.hostname === "www.empornium.sx") {
+    // if (location.hostname location.hostname === "www.empornium.sx") {
     if (unsafeWindow.TRACKERS.includes(location.hostname)) {
         let tag_form_input = document.getElementById("taginput");
         if (!tag_form_input) {
